@@ -71,12 +71,12 @@ export const LikeOrDislikeOrSaveContainer = styled.div`
   margin-right: 10px;
 `
 */
-export const LikeButton = styled.button`
+export const Button = styled.button`
   background-color: transparent;
   margin-right: 10px;
   border: none;
   cursor: pointer;
-  color: ${props => (props.active ? '#2563eb' : '#64748b')};
+  color: ${props => (props.active ? '#2563eb' : '#64748b')} !important;
 `
 
 export const DislikeButton = styled.button`
@@ -84,7 +84,7 @@ export const DislikeButton = styled.button`
   margin-right: 10px;
   border: none;
   cursor: pointer;
-  color: ${props => (props.active ? '#2563eb' : '#64748b')};
+  color: ${props => (props.active ? '#2563eb' : '#64748b')} !important;
 `
 
 export const SaveButton = styled.button`

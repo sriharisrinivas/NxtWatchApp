@@ -19,9 +19,7 @@ import {
   Profile,
   ChannelNameViewCountAndPublishedStyling,
   Title,
-  LikeButton,
-  DislikeButton,
-  SaveButton,
+  Button,
   DetailsContainer,
   AboutContainer,
   HorizontalLine,
@@ -121,13 +119,11 @@ class VideoItemDetails extends Component {
           const {isDarkTheme, saveVideoButtonClicked} = value
           const likeIconClassName = isLike ? 'selected' : 'not-selected'
           const dislikeIconClassName = isDislike ? 'selected' : 'not-selected'
-
+          const saveButtonIconClassName = isSaved ? 'selected' : 'not-selected'
           const saveButtonText = isSaved ? 'Saved' : 'Save'
-          const saveButtonClickedClassName = isSaved
-            ? 'selected'
-            : 'not-selected'
+
           const onSaveButtonClicked = () => {
-            this.setState({isSaved: true})
+            this.setState(prevState => ({isSaved: !prevState.isSaved}))
             saveVideoButtonClicked({
               videoDetails,
             })
@@ -160,29 +156,34 @@ class VideoItemDetails extends Component {
                   <AiOutlineLike
                     className={`icon-in-video-item ${likeIconClassName}`}
                   />
-                  <LikeButton active={isLike} onClick={onLikeButtonClicked}>
+                  <Button
+                    active={isLike}
+                    style={{color: '#64748b'}}
+                    onClick={onLikeButtonClicked}
+                  >
                     Like
-                  </LikeButton>
+                  </Button>
 
                   <AiOutlineDislike
                     className={`icon-in-video-item ${dislikeIconClassName}`}
                   />
-                  <DislikeButton
+                  <Button
                     active={isDislike}
+                    style={{color: '#64748b'}}
                     onClick={onDislikeButtonClicked}
                   >
                     Dislike
-                  </DislikeButton>
+                  </Button>
 
                   <BiListPlus
-                    className={`icon-in-video-item ${saveButtonClickedClassName} `}
+                    className={`icon-in-video-item ${saveButtonIconClassName} `}
                   />
-                  <SaveButton
+                  <Button
                     onClick={onSaveButtonClicked}
-                    className={saveButtonClickedClassName}
+                    className={saveButtonIconClassName}
                   >
                     {saveButtonText}
-                  </SaveButton>
+                  </Button>
                 </RightDynamicContainer>
               </DynamicDataContainer>
               <HorizontalLine />
