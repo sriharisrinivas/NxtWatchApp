@@ -42,8 +42,8 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
+    "start": "react-scripts start",
+    "build": "CI=false react-scripts build",
     "test": "craco test",
     "lint": "eslint .",
     "lint:fix": "eslint --fix src/",
